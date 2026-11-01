@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Build for hosting: `npm run build` (output in `dist/`).
+Build for hosting: `npm run build` (output in `dist/`). Pushing to `main` redeploys the live site through GitHub Pages (`.github/workflows/deploy.yml`).
 
 ## Use it
 

@@ -61,3 +61,18 @@ export const PRESETS = [
     },
   },
 ]
+
+// The owner's car. Seeded into the editable list on first visit, so it can be changed or deleted.
+// Confirmed from public listings: engine, hp, torque, transmission, drivetrain, wheels, tires, weight, mpg.
+// Estimated / unconfirmed (check against the window sticker and edit): 0-60, sound, brakes, screen, and the
+// blind-spot / parking / heated seat / wireless charging flags.
+export const MY_CAR = {
+  id: 'my-trax', name: '2026 Chevy Trax 2RS', year: 2026, bodyType: 'suv', color: '#d9342b', mine: true,
+  values: {
+    engine: '1.2L turbo 3-cyl', horsepower: 137, torque: 162, transmission: '6-speed automatic', drivetrain: 'FWD',
+    wheelSize: 19, tires: '245/45R19', brakes: '', fuel: 'Gas, ~30 mpg combined, 13.2 gal tank',
+    zeroToSixty: 9, weight: 3040,
+    laneAssist: true, adaptiveCruise: true, blindSpot: true, parkingAssist: true,
+    sound: '', screen: '11-inch touchscreen', heatedSeats: true, sunroof: true, wirelessCharging: true,
+  },
+}

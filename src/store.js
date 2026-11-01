@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { PRESETS } from './data/presets.js'
+import { MY_CAR, PRESETS } from './data/presets.js'
 
 const CARS_KEY = 'carcompare.cars.v1'
 const SEL_KEY = 'carcompare.selected.v1'
@@ -23,8 +23,8 @@ function save(key, value) {
 }
 
 export function useCars() {
-  const [custom, setCustom] = useState(() => load(CARS_KEY, []))
-  const [selected, setSelected] = useState(() => load(SEL_KEY, ['preset-camry', 'preset-model3']))
+  const [custom, setCustom] = useState(() => load(CARS_KEY, [MY_CAR]))
+  const [selected, setSelected] = useState(() => load(SEL_KEY, [MY_CAR.id, 'preset-ioniq5']))
 
   useEffect(() => save(CARS_KEY, custom), [custom])
   useEffect(() => save(SEL_KEY, selected), [selected])
