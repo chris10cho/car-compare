@@ -28,41 +28,42 @@ export const FEATURES = [
   { id: 'wirelessCharging', label: 'Wireless phone charging', group: 'interior', type: 'bool' },
 ]
 
-// Clickable spots on the car graphic. x/y are in the 600x260 SVG space.
+// Clickable spots on the car graphic. pos = [X, Y, Z] in the car's 3D space
+// (X length 0 rear→440 front, Y width ±88, Z height). 'roof' = sit on the roof surface.
 // Each spot can cover several features (the engine spot holds engine + hp + torque).
 export const PARTS = [
   // exterior
-  { id: 'engine', label: 'Engine', group: 'exterior', x: 530, y: 158, featureIds: ['engine', 'horsepower', 'torque'],
+  { id: 'engine', label: 'Engine', group: 'exterior', pos: [385, 0, 55], featureIds: ['engine', 'horsepower', 'torque'],
     description: 'Makes the power. Horsepower is how fast it can work (top-end speed); torque is the twisting push you feel when you step on the gas.' },
-  { id: 'transmission', label: 'Transmission & drive', group: 'exterior', x: 355, y: 174, featureIds: ['transmission', 'drivetrain'],
+  { id: 'transmission', label: 'Transmission & drive', group: 'exterior', pos: [300, 0, 42], featureIds: ['transmission', 'drivetrain'],
     description: 'The transmission matches engine speed to road speed. The drivetrain says which wheels get the power: front, rear, or all four.' },
-  { id: 'wheels', label: 'Wheels & tires', group: 'exterior', x: 440, y: 186, featureIds: ['wheelSize', 'tires'],
+  { id: 'wheels', label: 'Wheels & tires', group: 'exterior', pos: [355, 92, 38], featureIds: ['wheelSize', 'tires'],
     description: 'Bigger wheels look sportier but ride firmer. The tire code reads width / sidewall height % / wheel diameter (235/40R19).' },
-  { id: 'brakes', label: 'Brakes', group: 'exterior', x: 120, y: 186, featureIds: ['brakes'],
+  { id: 'brakes', label: 'Brakes', group: 'exterior', pos: [85, 92, 38], featureIds: ['brakes'],
     description: 'Stops the car. Vented discs shed heat better; more pistons in the caliper means a firmer, more even clamp.' },
-  { id: 'energy', label: 'Fuel / battery', group: 'exterior', x: 215, y: 178, featureIds: ['fuel'],
+  { id: 'energy', label: 'Fuel / battery', group: 'exterior', pos: [160, 0, 30], featureIds: ['fuel'],
     description: 'What the car runs on and how far it goes: mpg for gas, kWh for the battery in an EV.' },
-  { id: 'performance', label: 'Performance & weight', group: 'exterior', x: 290, y: 190, featureIds: ['zeroToSixty', 'weight'],
+  { id: 'performance', label: 'Performance & weight', group: 'exterior', pos: [175, 88, 30], featureIds: ['zeroToSixty', 'weight'],
     description: '0–60 mph is the standard launch test (lower is quicker). Curb weight is the car with fluids but no passengers; lighter usually feels nimbler.' },
 
   // interior
-  { id: 'laneAssist', label: 'Lane assist', group: 'interior', x: 392, y: 124, featureIds: ['laneAssist'],
+  { id: 'laneAssist', label: 'Lane assist', group: 'interior', pos: [285, 0, 96], featureIds: ['laneAssist'],
     description: 'A camera by the mirror watches lane lines and gently steers you back if you drift without signaling.' },
-  { id: 'adaptiveCruise', label: 'Adaptive cruise control', group: 'interior', x: 558, y: 168, featureIds: ['adaptiveCruise'],
+  { id: 'adaptiveCruise', label: 'Adaptive cruise control', group: 'interior', pos: [440, 0, 40], featureIds: ['adaptiveCruise'],
     description: 'Radar in the nose keeps a set gap to the car ahead, slowing and speeding up for you.' },
-  { id: 'blindSpot', label: 'Blind-spot monitor', group: 'interior', x: 195, y: 148, featureIds: ['blindSpot'],
+  { id: 'blindSpot', label: 'Blind-spot monitor', group: 'interior', pos: [110, 88, 70], featureIds: ['blindSpot'],
     description: 'Rear-corner sensors light a warning in your mirror when a car is where you cannot see it.' },
-  { id: 'parkingAssist', label: 'Parking assist', group: 'interior', x: 54, y: 166, featureIds: ['parkingAssist'],
+  { id: 'parkingAssist', label: 'Parking assist', group: 'interior', pos: [0, 0, 45], featureIds: ['parkingAssist'],
     description: 'Bumper sensors beep as you near obstacles. Some cars also steer into the spot for you.' },
-  { id: 'sound', label: 'Sound system', group: 'interior', x: 300, y: 166, featureIds: ['sound'],
+  { id: 'sound', label: 'Sound system', group: 'interior', pos: [215, 88, 55], featureIds: ['sound'],
     description: 'Speaker count and brand. Dolby Atmos adds overhead channels so sound moves around the cabin.' },
-  { id: 'screen', label: 'Infotainment', group: 'interior', x: 378, y: 146, featureIds: ['screen'],
+  { id: 'screen', label: 'Infotainment', group: 'interior', pos: [295, 0, 78], featureIds: ['screen'],
     description: 'The dash screen for maps, music, and phone connection (CarPlay / Android Auto).' },
-  { id: 'heatedSeats', label: 'Heated seats', group: 'interior', x: 255, y: 150, featureIds: ['heatedSeats'],
+  { id: 'heatedSeats', label: 'Heated seats', group: 'interior', pos: [205, -36, 62], featureIds: ['heatedSeats'],
     description: 'Warms the seat cushion and back in cold weather.' },
-  { id: 'sunroof', label: 'Sunroof', group: 'interior', x: 300, y: 104, featureIds: ['sunroof'],
+  { id: 'sunroof', label: 'Sunroof', group: 'interior', pos: [215, 0, 'roof'], featureIds: ['sunroof'],
     description: 'An opening or glass panel in the roof for light and air.' },
-  { id: 'wirelessCharging', label: 'Wireless charging', group: 'interior', x: 335, y: 178, featureIds: ['wirelessCharging'],
+  { id: 'wirelessCharging', label: 'Wireless charging', group: 'interior', pos: [250, 0, 52], featureIds: ['wirelessCharging'],
     description: 'A pad in the console that charges a compatible phone with no cable.' },
 ]
 

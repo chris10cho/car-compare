@@ -1,6 +1,6 @@
 # Car Compare
 
-Compare up to 3 cars side by side. Each car is drawn as a cutaway side view with dots on the parts and features (engine, transmission, wheels, lane assist, adaptive cruise, sound system, etc.). Hover or tap a dot to see what it is and the car's spec. A comparison table under the graphics lines up every spec, with the best numeric value marked ▲.
+Compare up to 3 cars side by side. Each car is a see-through isometric 3D view (engine, transmission, wheels, seats and dash visible inside) with dots on the parts and features (engine, transmission, wheels, lane assist, adaptive cruise, sound system, etc.). Hover or tap a dot to see what it is and the car's spec. A comparison table under the graphics lines up every spec, with the best numeric value marked ▲.
 
 ## Run it
 
@@ -26,4 +26,4 @@ Add one entry to `FEATURES` in `src/data/features.js`, then include its id in a 
 ## Notes
 
 - Preset specs in `src/data/presets.js` are approximate sample numbers, not official.
-- Body shapes (sedan, SUV, truck, coupe) are in `src/components/CarGraphic.jsx`. Dot positions are shared across shapes.
+- Body outlines (sedan, SUV, truck, coupe) are in `src/iso.js`. Each dot has a 3D position in `src/data/features.js` and is projected onto the car, so it lands on the right part for every body type.

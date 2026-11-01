@@ -1,20 +1,20 @@
 import { useState } from 'react'
 import { featureById, formatValue, hasValue } from '../data/features.js'
 
-export default function Hotspot({ part, car, pinned, onPin, hover, setHover }) {
+export default function Hotspot({ part, place, car, pinned, onPin, hover, setHover }) {
   const [local, setLocal] = useState(false)
   const features = part.featureIds.map((id) => featureById[id])
   const present = features.some((f) => hasValue(f, car.values[f.id]))
   const linked = hover.partId === part.id || part.featureIds.includes(hover.featureId)
   const open = local || pinned
 
-  const side = part.x < 200 ? 'left' : part.x > 400 ? 'right' : 'center'
-  const vert = part.y > 135 ? 'above' : 'below'
+  const side = place.left < 30 ? 'left' : place.left > 70 ? 'right' : 'center'
+  const vert = place.top > 50 ? 'above' : 'below'
 
   return (
     <div
       className={`hotspot ${part.group} ${present ? 'on' : 'off'} ${linked ? 'linked' : ''} ${open ? 'open' : ''}`}
-      style={{ left: `${(part.x / 600) * 100}%`, top: `${(part.y / 260) * 100}%` }}
+      style={{ left: `${place.left}%`, top: `${place.top}%` }}
       onMouseEnter={() => { setLocal(true); setHover({ partId: part.id }) }}
       onMouseLeave={() => { setLocal(false); setHover({}) }}
     >
